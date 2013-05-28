@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:BaseView xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:view="org.flexmvc.view.*"
+               title="Techforum">
+  
+  <s:VGroup id="lstButtons" width="100%" height="100%" paddingLeft="5" paddingRight="5"
+            paddingTop="5">
+    <s:Button id="btnConferences" width="100%" label="Conferences"/>
+    <s:Button id="btnMap" width="100%" label="Map"/>
+    <s:Button id="btnFeedback" width="100%" label="Feedback"/>
+  </s:VGroup>
+</view:BaseView>

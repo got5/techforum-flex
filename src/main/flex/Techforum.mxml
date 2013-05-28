@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:BaseApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+                      xmlns:s="library://ns.adobe.com/flex/spark"
+                      xmlns:view="org.flexmvc.view.*"
+                      applicationDPI="160"
+                      moduleClass="org.got5.services.ConferenceModule">
+</view:BaseApplication>

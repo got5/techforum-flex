@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:BaseView xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        title="Conférences" xmlns:model="org.got5.model.*" 
+        xmlns:service="org.got5.services.*" xmlns:view="org.flexmvc.view.*">
+  
+  <view:navigationContent/>
+  
+  <view:titleContent>
+    <s:TextInput id="txtSearch" width="100%"/>
+  </view:titleContent>
+  
+  <view:actionContent>
+    <s:Button id="btnSearch" icon="@Embed('../assets/icons/search.png')"/>
+  </view:actionContent>
+  
+  <s:List id="lstConferences" left="0" right="0" top="0" bottom="0" labelField="title">
+    <s:itemRenderer>
+      <fx:Component>
+        <s:LabelItemRenderer/>
+      </fx:Component>
+    </s:itemRenderer>
+  </s:List>
+</view:BaseView>
