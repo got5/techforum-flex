@@ -1,8 +1,8 @@
 package org.got5.controllers
 {
   import org.flexmvc.constants.SymbolConstantsValues;
-  import org.got5.services.IConferenceService;
   import org.got5.views.ConferencesView;
+  import org.got5.views.FeedbackView;
   import org.got5.views.MapView;
   
   /** MenuView Controller */
@@ -30,6 +30,11 @@ package org.got5.controllers
     /** Handler on btnMap button click. */
     public function onClickFromBtnMap():Class {
       return MapView;
+    }
+    
+    /** Handler on btnFeedback button click. */
+    public function onClickFromBtnFeedback():Class {
+      return FeedbackView;
     }
     
     /** Called on VIEW_DEACTIVATE event. */

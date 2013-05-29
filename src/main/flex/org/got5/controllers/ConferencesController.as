@@ -1,11 +1,10 @@
 package org.got5.controllers
 {
+  import spark.components.List;
+  
   import org.flexmvc.view.DestinationViewVO;
   import org.got5.services.IConferenceService;
   import org.got5.views.DetailView;
-  
-  import spark.components.List;
-  import spark.components.TextInput;
   
   /** ConferencesView view controller. */
   public class ConferencesController
@@ -18,18 +17,23 @@ package org.got5.controllers
     [Component]
     public var lstConferences:List;
     
-    /** Search field. */
-    [Component]
-    public var txtSearch:TextInput;
+    /** Search field value. */
+    [ComponentProperty]
+    public var text_txtSearch:String;
     
-    /** Handler on clic onbtnSearch */
+    /** Handler on clic on btnSearch */
     public function onClickFromBtnSearch():void {
-      lstConferences.dataProvider = conferenceService.findByTitle(txtSearch.text);
+      lstConferences.dataProvider = conferenceService.findByTitle(text_txtSearch);
+    }
+    
+    /** Handler on change on txtSearch */
+    public function onChangeFromTxtSearch():void {
+      lstConferences.dataProvider = conferenceService.findByTitle(text_txtSearch);
     }
     
     /** Handler on change event on list LstConferences. */
     public function onChangeFromLstConferences():DestinationViewVO {
-      return new DestinationViewVO(DetailView);
+      return new DestinationViewVO(DetailView, lstConferences.selectedItem);
     }
   }
 }

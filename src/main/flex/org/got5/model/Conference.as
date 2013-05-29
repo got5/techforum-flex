@@ -16,8 +16,16 @@ package org.got5.model
     
     public var speaker:String;
     
-		public function Conference()
+		public function Conference(pId:int, pTitle:String = null, pDescription:String = null, pCat:String = null, 
+                               pRoom:String = null, pDay:String = null, pSpeaker:String = null)
 		{
+      id = pId;
+      title = pTitle;
+      description = pDescription;
+      category = pCat;
+      room = pRoom;
+      day = pDay;
+      speaker = pSpeaker;
 		}
 	}
 }
