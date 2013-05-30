@@ -4,14 +4,17 @@
         title="Conférences" xmlns:model="org.got5.model.*" 
         xmlns:service="org.got5.services.*" xmlns:view="org.flexmvc.view.*">
   
-  <view:navigationContent/>
+  <view:navigationContent>
+    <s:Button id="btnReturn" icon="@Embed('../assets/icons/home.png')"/>
+  </view:navigationContent>
   
   <view:titleContent>
-    <s:TextInput id="txtSearch" width="100%"/>
+    <s:TextInput id="txtSearch" width="100%" prompt="Filter..."/>
   </view:titleContent>
   
   <view:actionContent>
-    <s:Button id="btnSearch" icon="@Embed('../assets/icons/search.png')"/>
+    <s:Button id="btnDelete" icon="@Embed('../assets/icons/delete.png')"/>
+    <s:Button id="btnDetail" icon="@Embed('../assets/icons/detail.png')"/>
   </view:actionContent>
   
   <s:List id="lstConferences" left="0" right="0" top="0" bottom="0" labelField="title">

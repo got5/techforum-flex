@@ -24,6 +24,10 @@ package org.got5.services
       return _sqlConnection;
     }
     
+    /** User Service. */
+    [Inject]
+    public var userService:IUserService;
+    
     public function openDatabase(pFile:File):void
     {
       var bDbExists:Boolean = true;
@@ -91,11 +95,7 @@ package org.got5.services
     }
     
     public function addConference(pConf:Conference):void {
-      var strRequest:String = "INSERT INTO conference (title, description, category, room, day, speaker) VALUES (?, ?, ?, ?, ?, ?)";
-      
-      var statement:SQLStatement = new SQLStatement();
-      statement.sqlConnection = sqlConnection;
-      statement.text = strRequest;
+      var statement:SQLStatement = createStatement("INSERT INTO conference (title, description, category, room, day, speaker) VALUES (?, ?, ?, ?, ?, ?)");
       
       statement.parameters[0] = pConf.title;
       statement.parameters[1] = pConf.description;
@@ -108,11 +108,7 @@ package org.got5.services
     }
     
     public function updateConference(pConf:Conference):void {
-      var strRequest:String = "UPDATE conference SET title=?, description=?, category=?, room=?, day=?, speaker=? WHERE id=?";
-        
-      var statement:SQLStatement = new SQLStatement();
-      statement.sqlConnection = sqlConnection;
-      statement.text = strRequest;
+      var statement:SQLStatement = createStatement("UPDATE conference SET title=?, description=?, category=?, room=?, day=?, speaker=? WHERE id=?");
       
       statement.parameters[0] = pConf.title;
       statement.parameters[1] = pConf.description;
@@ -123,6 +119,23 @@ package org.got5.services
       statement.parameters[6] = pConf.id;
       
       statement.execute();
+    }
+    
+    public function deleteConference(pConf:Conference):void {
+      if (pConf) {
+        var statement:SQLStatement = createStatement("DELETE FROM conference WHERE id=?");
+        
+        statement.parameters[0] = pConf.id;
+        
+        statement.execute();
+      }
+    }
+    
+    private function createStatement(pRequest:String):SQLStatement {
+      var statement:SQLStatement = new SQLStatement();
+      statement.sqlConnection = sqlConnection;
+      statement.text = pRequest;
+      return statement;
     }
     
     public function ConferenceService() {

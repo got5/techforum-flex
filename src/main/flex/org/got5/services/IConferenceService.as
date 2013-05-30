@@ -11,5 +11,7 @@ package org.got5.services
     function addConference(pConf:Conference):void;
     
     function updateConference(pConf:Conference):void;
+    
+    function deleteConference(pConf:Conference):void;
   }
 }

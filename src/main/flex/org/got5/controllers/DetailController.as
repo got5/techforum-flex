@@ -4,7 +4,9 @@ package org.got5.controllers
   import org.got5.services.IConferenceService;
   import org.got5.views.ConferencesView;
   
+  import spark.components.DateSpinner;
   import spark.components.TextInput;
+  import spark.components.calendarClasses.DateSelectorDisplayMode;
 
   public class DetailController
   {
@@ -25,12 +27,21 @@ package org.got5.controllers
     [Component]
     public var txtSpeaker:TextInput;
     
+    [Component]
+    public var dsBeginTime:DateSpinner;
+    
+    [Component]
+    public var dsEndingTime:DateSpinner;
+    
     /** Called on Initialize event on view. */
     public function onSetupRender():void {
       if (currentConference) {
         txtTitle.text = currentConference.title;
         txtCategory.text = currentConference.category;
         txtSpeaker.text = currentConference.speaker;
+        
+        dsBeginTime.displayMode = DateSelectorDisplayMode.TIME;
+        dsEndingTime.displayMode = DateSelectorDisplayMode.TIME;
       }
     }
     
