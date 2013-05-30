@@ -24,6 +24,10 @@ package org.got5.services
       return _sqlConnection;
     }
     
+    /** User Service. */
+    [Inject]
+    public var userService:IUserService;
+    
     public function openDatabase(pFile:File):void
     {
       var bDbExists:Boolean = true;

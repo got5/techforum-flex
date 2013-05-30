@@ -35,6 +35,7 @@ package org.got5.services
     /** Used to store the services. The key is the service interface, the value is the implementation. */
     override public function bindServices(pServicesMap:HashMap):void {
       pServicesMap.put(IConferenceService, ConferenceService);
+      pServicesMap.put(IUserService, UserService);
     }
   }
 }
